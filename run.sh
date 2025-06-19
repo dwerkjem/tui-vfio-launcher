@@ -33,6 +33,13 @@ fi
 # shellcheck source=/dev/null
 source "$VENV/bin/activate"
 
+# ─── We need the venv module ───
+if ! python3 -c 'import venv' &>/dev/null; then
+  echo "📦 Installing python3-venv…"
+  sudo apt update
+  sudo apt install -y python3-venv
+fi
+
 # ─── Install Python deps ───
 echo "🔄 Installing Python dependencies…"
 python3 -m pip install --upgrade pip
@@ -45,4 +52,3 @@ if [[ "$EUID" -ne 0 ]]; then
   # Pass our internal flag so the re-invoked script knows it’s authorized as root.
   exec sudo INVOKED_AS_ROOT=1 bash "$0" "$@"
 fi
-
