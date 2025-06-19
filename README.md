@@ -1,19 +1,27 @@
 # tui-vfio-launcher
 
-A terminal-based utility for Debian 12 that simplifies GPU passthrough setup using VFIO and libvirt, with built-in support for launching Looking Glass for low-latency VM display. Through an intuitive text UI, it guides you step-by-step from IOMMU configuration to Windows VM launch.
+**tui-vfio-launcher** is a terminal-based utility for Debian 12 “Bookworm” that streamlines GPU passthrough configuration with VFIO and libvirt, and includes seamless integration with Looking Glass for low-latency VM display. Its guided text UI leads you step by step from IOMMU setup through to Windows VM launch.
 
 ## Requirements
-- Debian 12 (Bookworm) as the host OS.
-- A compatible GPU for passthrough.
-- A modern CPU with IOMMU support.
-- Basic knowledge of Linux command line and virtualization concepts.
-- Root privileges for installation and configuration tasks.
-- Currently, the script is designed to work with NVIDIA GPUs for passthrough.
+
+* Host OS: Debian 12 “Bookworm”
+* GPU with passthrough capability
+* CPU with IOMMU support (Intel VT-d or AMD-Vi)
+* Familiarity with the Linux command line and virtualization fundamentals
+* Root (sudo) privileges for installation and configuration
+* NVIDIA GPUs are currently the only officially supported hardware
 
 ## Features
-- **IOMMU Configuration**: Automatically configures IOMMU settings in the GRUB bootloader.
-- **VFIO Setup**: Installs necessary packages and configures VFIO for GPU passthrough.
-- **Libvirt Integration**: Sets up libvirt for managing VMs and integrates with Looking Glass for low-latency display.
-- **User-Friendly UI**: Intuitive text-based interface that guides you through each step.
-- **Error Handling**: Provides clear error messages and troubleshooting tips.
-- **Documentation**: Comprehensive documentation to help you understand each step of the process.
+
+* **IOMMU Configuration**
+  Automatically configures the required kernel parameters in GRUB
+* **VFIO Provisioning**
+  Installs and binds VFIO drivers for GPU passthrough
+* **Libvirt Integration**
+  Creates and manages libvirt VM definitions, including Looking Glass setup
+* **Text-Based User Interface**
+  Provides an intuitive, curses-style workflow for every configuration step
+* **Robust Error Handling**
+  Outputs clear, actionable error messages and troubleshooting tips
+* **Extensive Documentation**
+  Offers detailed explanations of each stage and customizable options
